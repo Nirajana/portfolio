@@ -21,9 +21,9 @@
   <body>
     <h1>Registration Form</h1>
     <p>Please fill out this form with the required information</p>
-
+    <!--
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScBe5XPT59aB9j_pZ_lMavrhqE8YEv_OpHPppAHpdUQEJzwKQ/viewform?embedded=true" width="640" height="780" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
+    -->
     <p>Form 2</p>
     <form id="registration-form">
       <form method="post" action='https://docs.google.com/forms/d/e/1FAIpQLScBe5XPT59aB9j_pZ_lMavrhqE8YEv_OpHPppAHpdUQEJzwKQ/viewform?usp=dialog'>
@@ -68,10 +68,10 @@
       form.addEventListener('submit', e => {
         e.preventDefault();
         const formData = {
-          first_name: form.first-name.value,
-          last_name: form.last-name.value,
+          first_name: form['first-name'].value,
+          last_name: form['last-name'].value,
           email: form.email.value,
-          
+          password: form['new-password'].value
         };
         fetch(scriptURL, {
           method: 'POST',
