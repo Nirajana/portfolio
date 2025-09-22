@@ -44,9 +44,9 @@
           <label for="referrer">How did you hear about us?
             <select id="referrer" name="referrer">
               <option value="">(select one)</option>
-              <option value="1">freeCodeCamp News</option>
-              <option value="2">freeCodeCamp YouTube Channel</option>
-              <option value="3">freeCodeCamp Forum</option>
+              <option value="1">News</option>
+              <option value="2">YouTube Channel</option>
+              <option value="3">Forum</option>
               <option value="4">Other</option>
             </select>
           </label>
@@ -63,16 +63,17 @@
     
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzORPKHiNU1n9tY9rX_izW78hsJsSJEUy-Q48B_NzIctcG4gDYcAH3p_PZsppVE4CxU/exec'; // from Apps Script deploy
-      const form = document.getElementById('registration-form');
-    
+      
+      const form = document.getElementById('registration-form'); // Make sure to replace this with your actual form ID
+
       form.addEventListener('submit', e => {
-        e.preventDefault();
-        const formData = {
-          first_name: form['first-name'].value,
-          last_name: form['last-name'].value,
-          email: form.email.value,
-          password: form['new-password'].value
-        };
+      e.preventDefault();
+
+      const formData = {
+      first_name: form['first-name'].value,
+      last_name: form['last-name'].value,
+      email: form['email'].value
+      };
         fetch(scriptURL, {
           method: 'POST',
           body: JSON.stringify(formData)
